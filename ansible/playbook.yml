@@ -9,4 +9,5 @@
         project_src: /usr/share/example_app/
         files:
         - /usr/share/example_app/docker-compose.yml
+        build: "always"
 

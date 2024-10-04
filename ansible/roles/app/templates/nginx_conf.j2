@@ -1,3 +1,4 @@
+user  {{ nginx_user }};
 worker_processes  {{ worker_processes }};
 worker_priority     -1;
 
@@ -39,6 +40,8 @@ http {
     proxy_busy_buffers_size   64k;
     server_names_hash_bucket_size 64;
 
+    include /etc/nginx/modules-enabled/*.conf;
+    include /etc/nginx/conf.d/*.conf;
     include /etc/nginx/sites-enabled/*;
 }
 

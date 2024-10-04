@@ -20,8 +20,8 @@
 
 - name: Generate nginx default.conf
   template:
-    src: templates/nginx_default.j2
-    dest: /usr/share/example_app/docker/nginx/default.conf
+    src: templates/nginx_conf.j2
+    dest: /usr/share/example_app/docker/nginx/nginx.conf
 
 - name: Generate nginx example_app.conf
   template:
