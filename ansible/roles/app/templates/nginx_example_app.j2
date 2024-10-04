@@ -1,0 +1,15 @@
+server {
+    listen       0.0.0.0:80;
+    server_name  {{ ansible_host }} {{ ansible_hostname }};
+    root /var/www/example_app;
+
+    access_log /var/log/nginx/example_app_access_log;
+    error_log /var/log/nginx/example_app_error_log;
+
+    location / {
+        include fastcgi_params;
+        fastcgi_pass php:9000;
+        fastcgi_index index.php;
+        fastcgi_param SCRIPT_FILENAME $document_root/$fastcgi_script_name;
+    }
+}

@@ -1,0 +1,12 @@
+- hosts: "all" # применяем команды ко всем хостам из inventory
+  become: true # становимся привилегированным пользователем
+  roles:
+    - app
+
+  tasks:
+    - name: deploy Docker Compose stack
+      community.docker.docker_compose_v2:
+        project_src: /usr/share/example_app/
+        files:
+        - /usr/share/example_app/docker-compose.yml
+

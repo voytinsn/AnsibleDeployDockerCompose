@@ -24,12 +24,5 @@ services:
     volumes:
       - mysql_data:/var/lib/mysql
 
-  phpmyadmin:
-    image: phpmyadmin
-    ports:
-      - 8082:80
-    environment:
-      - PMA_ARBITRARY=1
-
 volumes:
   mysql_data:
