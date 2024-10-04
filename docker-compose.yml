@@ -1,0 +1,35 @@
+services:
+  nginx:
+    build:
+      context: .
+      dockerfile: docker/nginx/Dockerfile
+    ports:
+      - 8080:80
+    volumes:
+      - ./data/logs/nginx/:/var/log/nginx/
+
+  php:
+    build:
+      context: .
+      dockerfile: docker/php/Dockerfile
+    expose:
+      - 9000
+
+  db:
+    build:
+      context: .
+      dockerfile: docker/mysql/Dockerfile
+    environment:
+      MYSQL_ROOT_PASSWORD: mysql_password
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin
+    ports:
+      - 8082:80
+    environment:
+      - PMA_ARBITRARY=1
+
+volumes:
+  mysql_data:
