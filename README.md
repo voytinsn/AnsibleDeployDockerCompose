@@ -26,7 +26,7 @@ cd AnsibleDeployDockerCompose
 ```
 
 ```
-copy .env.example .env
+cp .env.example .env
 ```
 
 Запуск плейбука
