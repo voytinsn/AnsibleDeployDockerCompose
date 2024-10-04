@@ -1,5 +1,5 @@
 <?
-$mysqli = mysqli_connect("db", "root", "mysql_password", "example_db");
+$mysqli = mysqli_connect("db", "root", $_ENV["MYSQL_ROOT_PASSWORD"], "example_db");
 
 if ($mysqli == false) {
     die("Ошибка: Невозможно подключиться к MySQL " . mysqli_connect_error());

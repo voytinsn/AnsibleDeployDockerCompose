@@ -3,6 +3,11 @@
     src: ../../../app/
     dest: /usr/share/example_app/app
 
+- name: Copy .env file
+  ansible.builtin.copy:
+    src: ../../../.env
+    dest: /usr/share/example_app/.env
+
 - name: Copy docker files
   ansible.builtin.copy:
     src: ../../../docker/
